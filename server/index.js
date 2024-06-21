@@ -9,14 +9,18 @@ const passport = require("passport");
 require("./config/passport")(passport);
 const cors = require("cors");
 
+const mongoURI = process.env.MONGODB_URI;
 // 連結MongoDB
 mongoose
-  .connect("mongodb://localhost:27017/mernDB")
+  .connect(mongoURI, {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  })
   .then(() => {
-    console.log("connecting to mongodb...");
+    console.log("Connected to MongoDB");
   })
   .catch((e) => {
-    console.log(e);
+    console.error("Error connecting to MongoDB", e);
   });
 
 // middlewares
