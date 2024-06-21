@@ -12,10 +12,7 @@ const cors = require("cors");
 const mongoURI = process.env.MONGODB_URI;
 // 連結MongoDB
 mongoose
-  .connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(mongoURI)
   .then(() => {
     console.log("Connected to MongoDB");
   })
