@@ -3,6 +3,7 @@ const API_URL = "https://mern-server-0nfh.onrender.com/api/user";
 
 class AuthService {
   login(email, password) {
+    console.log("In AuthService.login()");
     return axios.post(API_URL + "/login", { email, password });
   }
   logout() {

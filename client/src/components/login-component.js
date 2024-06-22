@@ -18,7 +18,6 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
   const handleLogin = async () => {
     try {
       let response = await AuthService.login(email, password);
-      console.log(response.data);
       localStorage.setItem("user", JSON.stringify(response.data));
       window.alert("登入成功，您現在將被重新導向到個人資料頁面");
       setCurrentUser(AuthService.getCurrentUser());
